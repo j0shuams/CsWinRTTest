@@ -1,0 +1,7 @@
+﻿<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- A target that swaps out the .winmd returned from the coords project reference 
+        with the .dll that is stored on the .winmd's ManagedImplementation metadata -->
+  
+</Project>
+
