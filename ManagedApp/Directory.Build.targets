@@ -2,6 +2,19 @@
 
   <!-- A target that swaps out the .winmd returned from the coords project reference 
         with the .dll that is stored on the .winmd's ManagedImplementation metadata -->
+
+  <Target Name="CsWinRTSwap" BeforeTargets="_BlockWinMDsOnUnsupportedTFMs" AfterTargets="ResolveReferences">
+    <ItemGroup>
+      <!-- Isolate the .WinMD -->
+      <_ComponentWinMD Include="@(ReferencePath)" Condition="'%(ReferencePath.Implementation)' != '' AND 'WinRT.Host.dll' == '%(ReferencePath.Implementation)'" />
+      <!-- Remove the WinMD -->
+      <ReferencePath Remove="@(_ComponentWinMD)" />
+      <!-- Now add the .dll of the same name as the .winmd -->
+      <ReferencePath Include="%(@(_ComponentWinMD).ManagedImplementation)" />
+      <!-- is this solution extendable? i.e. what happens with multiple authored components being used by a project -->
+      <!-- TODO use a task here to populate an itemgroup via the ManagedImplementation metadata -->
+    </ItemGroup>
+  </Target>
   
 </Project>
 
