@@ -1,0 +1,26 @@
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+    <PropertyGroup>
+      <CsWinRTVersion>1.6.2-prerelease.220420.7</CsWinRTVersion>
+	  <CsWinRTPath Condition="'$(CsWinRTPath)' == ''">$([MSBuild]::NormalizeDirectory('$(NugetPackagesRoot)', 'microsoft.windows.cswinrt', '$(CsWinRTVersion)'))</CsWinRTPath>
+    </PropertyGroup>
+	
+	<!-- 
+	<ItemGroup>
+		<None Include="$(CsWinRTPath)lib\net5.0\WinRT.Host.Shim.dll">
+			<TargetPath>WinRT.Host.Shim.dll</TargetPath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Include="$(CsWinRTPath)hosting\win-$(Platform)\native\WinRT.Host.dll">
+			<TargetPath>WinRT.Host.dll</TargetPath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Include="$(CsWinRTPath)hosting\win-$(Platform)\native\en-us\WinRT.Host.dll.mui">
+			<TargetPath>WinRT.Host.dll.mui</TargetPath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>	
+	</ItemGroup>
+	-->
+</Project>

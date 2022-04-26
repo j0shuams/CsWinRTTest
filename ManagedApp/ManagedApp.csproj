@@ -2,12 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <Platforms>AnyCPU;x86</Platforms>
+	<CsWinRTSkipHosting>true</CsWinRTSkipHosting>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Coords\Coords.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<None Remove="**\WinRT.Host.dll" />
+		<None Remove="**\WinRT.Host.dll.mui" />
+		<None Remove="**\WinRT.Host.Shim.dll" />
+	</ItemGroup>
 
 </Project>
